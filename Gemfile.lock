@@ -239,6 +239,8 @@ GEM
     semantic_logger (4.12.0)
       concurrent-ruby (~> 1.0)
     sequel (5.65.0)
+    sequel-batches (2.0.2)
+      sequel
     serverengine (2.0.7)
       sigdump (~> 0.2.2)
     set (1.0.3)
@@ -306,6 +308,7 @@ DEPENDENCIES
   rubocop-config-umbrellio
   semantic_logger
   sequel
+  sequel-batches
   simplecov
   simplecov-lcov
   table_sync

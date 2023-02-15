@@ -19,6 +19,8 @@ describe UmbrellioUtils::Misc do
   end
 
   describe "::table_sync" do
+    Sequel::DATABASES.first.extension :batches
+
     def run!
       described_class.table_sync(users, routing_key: :umbrellio_utils)
     end
@@ -47,12 +49,7 @@ describe UmbrellioUtils::Misc do
       Array.alias_method(:in_batches, :each)
     end
 
-    let(:users) do
-      [
-        User.where(id: 1),
-        User.where(id: 2),
-      ]
-    end
+    let(:users) { User.where(id: 1) }
 
     context "without skipped users" do
       before do
